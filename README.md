@@ -1,61 +1,60 @@
 # [RestorePhotos.io](https://restorephotos.io/)
 
-This project restores old face photos using AI. Watch the [4 minute explainer video](https://twitter.com/nutlope/status/1614794731396931585) to see how I built this or see the [15 second demo](https://twitter.com/nutlope/status/1612488923716136962).
+Proyek ini mengembalikan foto wajah lama menggunakan AI. Tonton [video penjelasan 4 menit](https://twitter.com/nutlope/status/1614794731396931585) untuk melihat bagaimana saya membuat ini atau lihat [demo 15 detik](https://twitter.com/nutlope/status/1612488923716136962).
 
-[![Face Photo Restorer](./public/screenshot.png)](https://restorephotos.io/)
+[![Pemulih Foto Wajah](./public/screenshot.png)](https://restorephotos.io/)
 
-## How it works
+## Bagaiman Ini Bekerja
 
-It uses an ML model from the Applied Research Center called [GFPGAN](https://github.com/TencentARC/GFPGAN) on [Replicate](https://replicate.com/) to restore face photos. This application gives you the ability to upload any photo, which will send it through this ML Model using a Next.js API route, and return your restored photo.
+Ini menggunakan model ML dari Applied Research Center yang disebut [GFPGAN](https://github.com/TencentARC/GFPGAN) di [Replicate](https://replicate.com/) untuk memulihkan foto wajah. Aplikasi ini memberi Anda kemampuan untuk mengunggah foto apa pun, yang akan mengirimkannya melalui Model ML ini menggunakan rute Next.js API, dan mengembalikan foto Anda yang dipulihkan.
 
-## Running Locally
+## Berjalan secara lokal
 
-Note: I just added auth so these steps are not complete as of now. You can git clone from [this specific commit](https://github.com/Nutlope/restorePhotos/tree/1c5c8ac4f52a08f68a3091d3b21be8a65aef71f2).
+Catatan: Saya baru saja menambahkan autentikasi sehingga langkah-langkah ini belum selesai seperti sekarang. Anda dapat menggandakan git dari [komit khusus ini](https://github.com/Nutlope/restorePhotos/tree/1c5c8ac4f52a08f68a3091d3b21be8a65aef71f2).
 
-### Cloning the repository the local machine.
+### Kloning Repository Ke Mesin Lokal
 
 ```bash
 git clone
 ```
 
-### Creating a account on Replicate to get an API key.
+### Membuat akun di Replicate untuk mendapatkan kunci API.
 
-1. Go to [Replicate](https://replicate.com/) to make an account.
-2. Click on your profile picture in the top right corner, and click on "Dashboard".
-3. Click on "Account" in the navbar. And, here you can find your API token, copy it.
+1. Buka [Replikasi](https://replicate.com/) untuk membuat akun.
+2. Klik foto profil Anda di pojok kanan atas, dan klik "Dasbor".
+3. Klik "Akun" di bilah navigasi. Dan, di sini Anda dapat menemukan token API Anda, salin.
 
-### Storing API key in .env file.
+### Menyimpan kunci API di file .env.
 
-Create a file in root directory of project with env. And store your API key in it, as shown in the .example.env file.
+Buat file di direktori root proyek dengan env. Dan simpan kunci API Anda di dalamnya, seperti yang ditunjukkan pada file .example.env.
 
-If you'd also like to do rate limiting, create an account on UpStash, create a Redis database, and populate the two environment variables in `.env` as well. If you don't want to do rate limiting, you don't need to make any changes.
-
-### Installing the dependencies.
+Jika Anda juga ingin melakukan pembatasan tarif, buat akun di UpStash, buat database Redis, dan isi juga dua variabel lingkungan di `.env`. Jika Anda tidak ingin melakukan pembatasan tarif, Anda tidak perlu melakukan perubahan apa pun.
+### Menginstal dependensi.
 
 ```bash
 npm install
 ```
 
-### Running the application.
+### Menjalankan aplikasi.
 
-Then, run the application in the command line and it will be available at `http://localhost:3000`.
+Kemudian, jalankan aplikasi di baris perintah dan akan tersedia di `http://localhost:3000`.
 
 ```bash
 npm run dev
 ```
 
-## One-Click Deploy
+## Penerapan Sekali Klik
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+Deploy contoh menggunakan [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Nutlope/restorePhotos&env=REPLICATE_API_KEY&project-name=face-photo-restorer&repo-name=restore-photos)
+[![Menerapkan dengan Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Nutlope/restorePhotos&env=REPLICATE_API_KEY&project- name=pemulih-foto-wajah&nama-repo=restore-foto)
 
 ## Powered by
 
-This example is powered by the following services:
+Contoh ini didukung oleh layanan berikut:
 
-- [Replicate](https://replicate.com) (AI API)
-- [Upload](https://upload.io) (storage)
-- [Vercel](https://vercel.com) (hosting, serverless functions, analytics)
+- [Replikasi](https://replicate.com) (AI API)
+- [Unggah](https://upload.io) (penyimpanan)
+- [Vercel](https://vercel.com) (hosting, fungsi tanpa server, analitik)
 - [Auth.js](https://authjs.dev/) + [Neon](https://neon.tech/) (auth + DB)
-- [Upstash](https://upstash.com/) Redis (rate limiting)
+- [Upstash](https://upstash.com/) Redis (pembatasan tarif)
